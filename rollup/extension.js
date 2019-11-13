@@ -21,7 +21,7 @@ export default {
     preferConst: true,
     exports: 'named'
   }],
-  external: ['Vue'],
+  external: ['vue'],
   plugins: [
     commonjs(),
     vue({

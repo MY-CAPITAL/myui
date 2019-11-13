@@ -11,7 +11,7 @@ Vue组件和Less文件是分开编译的。
 
 扩展组件开发：`npm run serveExtension`
 
-less编译：`npm run gulp` 或者 `npx gulp`
+less编译：`npm run gulp` 或者 `npx gulp` 或者 配置WebStorm的`FileWatchers`代替gulp
 
 访问：http://localhost:10001
 
