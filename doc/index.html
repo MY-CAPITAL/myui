@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--<link rel="icon" href="<%= BASE_URL %>favicon.ico">-->
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/myui.css">
+    <link rel="stylesheet" href="css/myui.extension.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>myui</title>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but synth doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app">
+      <v-popup title="上传" v-model="isShowPopup">
+        <p>Content</p>
+        <div slot="footer">Footer</div>
+      </v-popup>
+
+      <div class="container">
+        <aside class="l aside"></aside>
+        <div class="r main">
+          <div class="panel" id="toRowCol">
+            <div class="title">栅格布局</div>
+            <div class="usage">
+              <pre class="language-html"><code>&lt;v-row&gt;
+  &lt;v-col :span=&quot;12&quot;&gt;&lt;/v-col&gt;
+  &lt;v-col :span=&quot;12&quot;&gt;&lt;/v-col&gt;
+&lt;/v-row&gt;</code></pre>
+            </div>
+            <div class="content">
+              <v-row>
+                <v-col :span="12">col-12</v-col>
+                <v-col :span="12">col-12</v-col>
+              </v-row>
+              <v-row>
+                <v-col :span="8">col-8</v-col>
+                <v-col :span="8">col-8</v-col>
+                <v-col :span="8">col-8</v-col>
+              </v-row>
+              <v-row>
+                <v-col :span="6">col-6</v-col>
+                <v-col :span="6">col-6</v-col>
+                <v-col :span="6">col-6</v-col>
+                <v-col :span="6">col-6</v-col>
+              </v-row>
+            </div>
+          </div>
+
+          <div class="panel" id="toLeftRight">
+            <div class="title">左右布局</div>
+            <p>左边固定宽度，右边全宽且自适应的布局</p>
+            <div class="usage">
+              <pre class="language-html"><code>&lt;div class=&quot;layout-lr&quot;&gt;
+  &lt;div class=&quot;l&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;r&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="content">
+              <div class="content-cell">
+                <div class="controls">
+                  <div class="layout-lr v-layout-lr-demo">
+                    <div class="l"></div>
+                    <div class="r"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel" id="toButton">
+            <div class="title">按钮</div>
+            <div class="usage">【v-button】，按钮组【v-button-group】</div>
+            <div class="content">
+              <div class="content-cell">
+                <div class="controls">
+                  <v-button>普通按钮</v-button>
+                  <v-button submit>提交按钮</v-button>
+                  <v-button type="ghost">Ghost按钮</v-button>
+                  <v-button disabled>禁用按钮</v-button>
+                  <v-button type="danger">危险按钮</v-button>
+                  <v-button type="text">文本按钮</v-button>
+                </div>
+                <div class="controls">
+                  <v-button size="lg">大按钮</v-button>
+                  <v-button>普通按钮</v-button>
+                  <v-button size="sm">小按钮</v-button>
+                </div>
+                <div class="controls">
+                  <v-button icon="download">普通按钮</v-button>
+                  <v-button type="ghost" icon="download">普通按钮</v-button>
+                  <v-button type="danger" icon="download">普通按钮</v-button>
+                  <v-button size="lg" icon="download">普通按钮</v-button>
+                </div>
+                <div class="controls">
+                  <v-button loading>加载按钮</v-button>
+                  <v-button loading></v-button>
+                  <v-button :loading="loading" icon="download" @click="loading = !loading">点击看效果</v-button>
+                  <v-button :loading="loading2" @click="loading2 = !loading2">点击看效果</v-button>
+                </div>
+                <div class="controls">
+                  <v-button-group>
+                    <v-button>前面</v-button>
+                    <v-button>中间</v-button>
+                    <v-button>后面</v-button>
+                  </v-button-group>
+                  <v-button-group>
+                    <v-button type="ghost">前面</v-button>
+                    <v-button type="ghost">中间</v-button>
+                    <v-button type="ghost">后面</v-button>
+                  </v-button-group>
+                </div>
+                <div class="source-code blog">
+                </div>
+              </div>
+            </div>
+            <div class="content">
+              <v-table :source="sourceButton" :columns="columns" simple></v-table>
+            </div>
+          </div>
+
+          <div class="panel" id="toDropdown">
+            <div class="title">下拉菜单</div>
+            <div class="content">
+              <div class="content-cell">
+                <div class="controls">
+                  <div class="v-dropdown-wrap">
+                    <div class="d-trigger">左对齐</div>
+                    <div class="v-dropdown">
+                      <a href="" class="d-item">
+                        <v-icon icon="home"></v-icon>
+                        个人中心</a>
+                      <a href="" class="d-item">
+                        <v-icon icon="guard"></v-icon>
+                        修改密码</a>
+                      <a class="d-divider"></a>
+                      <a href="" class="d-item">
+                        <v-icon icon="logout"></v-icon>
+                        退出登录</a>
+                    </div>
+                  </div>
+
+                  <div class="v-dropdown-wrap">
+                    <div class="d-trigger">右对齐</div>
+                    <div class="v-dropdown align-right">
+                      <a href="" class="d-item">
+                        <v-icon icon="home"></v-icon>
+                        个人中心</a>
+                      <a href="" class="d-item">
+                        <v-icon icon="guard"></v-icon>
+                        修改密码</a>
+                      <a class="d-divider"></a>
+                      <a href="" class="d-item">
+                        <v-icon icon="logout"></v-icon>
+                        退出登录</a>
+                    </div>
+                  </div>
+
+                  <div class="v-dropdown-wrap">
+                    <div class="d-trigger">底对齐</div>
+                    <div class="v-dropdown align-bottom">
+                      <a href="" class="d-item">
+                        <v-icon icon="home"></v-icon>
+                        个人中心</a>
+                      <a href="" class="d-item">
+                        <v-icon icon="guard"></v-icon>
+                        修改密码</a>
+                      <a class="d-divider"></a>
+                      <a href="" class="d-item">
+                        <v-icon icon="logout"></v-icon>
+                        退出登录</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel" id="toNavbar">
+            <div class="title">导航菜单</div>
+            <div class="usage">【v-menu】</div>
+            <div class="content">
+              <div class="cell" style="margin-bottom: 16px;">
+                <v-menu :menus="menus"></v-menu>
+              </div>
+              <div class="cell" style="display: flex;">
+                <v-menu :menus="menus" vertical></v-menu>
+                <v-menu :menus="menus" @click="clickMenu" mode="nonLink" vertical></v-menu>
+              </div>
+            </div>
+            <div class="content">
+              <v-table :source="sourceMenu" :columns="columns" simple></v-table>
+            </div>
+          </div>
+
+          <div class="panel" id="toInput">
+            <div class="title">文本输入框</div>
+            <div class="usage">【v-input】</div>
+            <div class="content">
+              <div class="content-cell">
+                <div class="controls">
+                  <v-input resize @enter="pressenter"></v-input>
+                  <v-input disabled></v-input>
+                  <v-input type="number" placeholder="请输入"></v-input>
+                  <v-input effect></v-input>
+                  <!--<input class="v-input" placeholder="输入文字">-->
+                </div>
+              </div>
+            </div>
+            <div class="content">
+              <v-table :source="sourceInput" :columns="columns" simple></v-table>
+            </div>
+          </div>
+
+          <div class="panel" id="toRadio">
+            <div class="title">单选框</div>
+            <div class="usage">【v-radio-group】</div>
+            <div class="content">
+              <div class="cell" style="display: flex; align-items: center; margin-bottom: 16px;">
+                <v-radio-group :source="radioSource" v-model="radioValue" name="framework1"></v-radio-group>
+              </div>
+              <div class="cell" style="display: flex; align-items: center; margin-bottom: 16px;">
+                <v-radio-group :source="radioSource" v-model="radioValue" name="framework2" lnf="button"></v-radio-group>
+              </div>
+              <div class="cell" style="display: flex; align-items: center;">
+                <label class="label">垂直模式：</label>
+                <v-radio-group style="width: 100px; margin-right: 24px;" :source="radioSource" v-model="radioValue" name="framework3" reverse vertical></v-radio-group>
+                <v-radio-group :source="radioSource" v-model="radioValue" name="framework2" lnf="button" vertical></v-radio-group>
+              </div>
+            </div>
+            <div class="content">
+              <v-table :source="sourceRadio" :columns="columns" simple></v-table>
+            </div>
+          </div>
+
+          <div class="panel" id="toCheckbox">
+            <div class="title">单复选框</div>
+            <div class="usage">【v-checkbox】</div>
+            <div class="content">
+              <div class="cell" style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 16px;">
+                <v-checkbox style="margin-bottom: 16px;" label="全选" name="selectAll" v-model="checkboxValue"></v-checkbox>
+                <v-checkbox style="margin-bottom: 16px;" label="全选" name="selectAll" v-model="checkboxValue" disabled></v-checkbox>
+                <v-checkbox style="margin-bottom: 16px;" label="全选" name="selectAll" v-model="checkboxValue" lnf="button"></v-checkbox>
+                <v-checkbox style="width: 100px;margin-bottom: 16px;" label="全选" name="selectAll" v-model="checkboxValue"></v-checkbox>
+                <v-checkbox style="width: 100px;margin-bottom: 16px;" label="全选" name="selectAll" v-model="checkboxValue" reverse></v-checkbox>
+              </div>
+            </div>
+            <div class="content">
+              <v-table :source="sourceCheckbox" :columns="columns" simple></v-table>
+            </div>
+          </div>
+
+          <div class="panel" id="toCheckboxGroup">
+            <div class="title">多复选框</div>
+            <div class="usage">【v-checkbox-group】</div>
+            <div class="content">
+              <div class="cell" style="display: flex; align-items: center; margin-bottom: 16px;">
+                <v-checkbox-group :source="checkboxSource" v-model="multiCheckboxValue"></v-checkbox-group>
+              </div>
+              <div class="cell" style="display: flex; align-items: center; margin-bottom: 16px;">
+                <v-checkbox-group :source="checkboxSource" v-model="multiCheckboxValue" lnf="button"></v-checkbox-group>
+              </div>
+              <div class="cell" style="display: flex; align-items: center;">
+                <label class="label">垂直模式：</label>
+                <v-checkbox-group style="width: 100px; margin-right: 24px;" :source="checkboxSource" v-model="multiCheckboxValue" reverse vertical></v-checkbox-group>
+                <v-checkbox-group :source="checkboxSource" v-model="multiCheckboxValue" reverse vertical lnf="button"></v-checkbox-group>
+              </div>
+            </div>
+            <div class="content">
+              <v-table :source="sourceCheckboxGroup" :columns="columns" simple></v-table>
+            </div>
+          </div>
+
+          <div class="panel" id="toSwitch">
+            <div class="title">开关</div>
+            <div class="usage">【v-switch】</div>
+            <div class="content">
+              <div class="content-cell">
+                <div class="controls">
+                  <v-switch v-model="switchValue"></v-switch>
+                  <v-switch disabled></v-switch>
+                </div>
+              </div>
+            </div>
+            <div class="content">
+              <v-table :source="sourceSwitch" :columns="columns" simple></v-table>
+            </div>
+          </div>
+
+          <div class="panel" id="toSearch">
+            <div class="title">搜索框</div>
+            <div class="usage">【v-search】</div>
+            <div class="content">
+              <div class="content-cell">
+                <div class="controls">
+                  <v-search @search="startSearch"></v-search>
+                  <v-search @search="startSearch" :auto="false" placeholder="禁用自动搜索"></v-search>
+                </div>
+              </div>
+            </div>
+            <div class="content">
+              <v-table :source="sourceSearch" :columns="columns" simple></v-table>
+            </div>
+          </div>
+
+          <div class="panel" id="toUpload">
+            <div class="title">文件选择按钮</div>
+            <div class="usage">【v-upload】</div>
+            <div class="content">
+              <div class="content-cell">
+                <div class="controls">
+                  <v-upload text="选择单个文件" @select="selectFiles"></v-upload>
+                </div>
+                <div class="controls">
+                  <v-upload text="选择多个文件" multi @select="selectFiles"></v-upload>
+                </div>
+                <div class="controls">
+                  <v-upload text="显示图片预览" thumbnail @select="selectFiles"></v-upload>
+                </div>
+                <div class="controls">
+                  <v-upload text="显示多张图片预览" thumbnail multi :thumb-size="200" @select="selectFiles"></v-upload>
+                </div>
+                <div class="controls">
+                  <v-upload thumbnail @select="selectFiles" shape="square"></v-upload>
+                </div>
+              </div>
+            </div>
+            <div class="content">
+              <v-table :source="sourceUpload" :columns="columns" simple></v-table>
+            </div>
+          </div>
+
+          <div class="panel" id="toTab">
+            <div class="title">Tab页</div>
+            <div class="usage">【v-tab】</div>
+            <div class="content">
+              <div class="content-cell">
+                <div class="controls">
+                  <v-tab :titles="tabTitles" v-model="tabValue"></v-tab>
+                </div>
+                <div class="controls">
+                  <v-tab :titles="tabTitles2" v-model="tabValue" lock></v-tab>
+                </div>
+              </div>
+            </div>
+            <div class="content">
+              <v-table :source="sourceTab" :columns="columns" simple></v-table>
+            </div>
+          </div>
+
+          <div class="panel" id="toMessage">
+            <div class="title">消息提示</div>
+            <div class="usage">【this.success(), this.warn(), this.info(), this.error()】</div>
+            <div class="content">
+              <v-button @click="msgSuccess">成功</v-button>
+              <v-button @click="msgWarn">警告</v-button>
+              <v-button @click="msgInfo">提示</v-button>
+              <v-button type="danger" @click="msgError">错误</v-button>
+            </div>
+            <h4 style="padding-left: 10px;">this.error()支持对象，如果是对象，则显示其msg属性的值</h4>
+          </div>
+
+          <div class="panel" id="toSelect">
+            <div class="title">下拉列表</div>
+            <div class="usage">【v-select】【v-pure-select】</div>
+            <div class="content">
+              <v-select :source="cars" v-model="bought2"></v-select>
+              <v-select :source="cars" v-model="bought3" multiple></v-select>
+              <v-select :source="cars" v-model="bought2" searchable clearable></v-select>
+              <v-select :source="cars" disabled></v-select>
+              <v-pure-select v-model="pureSelectValue" :source="diploma"></v-pure-select>
+            </div>
+            <div class="content">
+              <v-table :source="sourceSelect" :columns="columns" simple></v-table>
+            </div>
+            <h4 style="padding-left: 10px;">v-pure-select，简单模式，使用radio实现</h4>
+            <div class="content">
+              <v-table :source="sourcePureSelect" :columns="columns" simple></v-table>
+            </div>
+          </div>
+
+          <div class="panel" id="toProgress">
+            <div class="title">进度条</div>
+            <div class="usage">【v-progress】</div>
+            <div class="content">
+              <v-progress :value="0.12"></v-progress>
+              <v-progress :value="0.6434" decimal :width="300" :height="40" color="#f46e65"></v-progress>
+            </div>
+            <div class="content">
+              <v-table :source="sourceProgress" :columns="columns" simple></v-table>
+            </div>
+          </div>
+
+          <div class="panel" id="toPagination">
+            <div class="title">分页</div>
+            <div class="usage">【v-pagination】</div>
+            <div class="content">
+              <v-pagination :total="100"></v-pagination>
+              <v-pagination :total="100" no-border></v-pagination>
+              <v-pagination :total="100" simple></v-pagination>
+              <v-pagination :total="100" simple no-border></v-pagination>
+            </div>
+            <div class="content">
+              <v-table :source="sourcePagination" :columns="columns" simple></v-table>
+            </div>
+          </div>
+
+          <div class="panel" id="toDatePicker">
+            <div class="title">日期选择器</div>
+            <div class="usage">【v-date-picker】</div>
+            <div class="content">
+              <v-date-picker fixed-width years-desc></v-date-picker>
+              <v-date-picker @update="selectDate"></v-date-picker>
+              <v-date-picker v-model="datePickerValue" @update="selectDate"></v-date-picker>
+            </div>
+            <div class="content">
+              <v-table :source="sourceDatePicker" :columns="columns" simple></v-table>
+            </div>
+          </div>
+
+          <div class="panel" id="toPwdStrength">
+            <div class="title">密码强度</div>
+            <div class="usage">【v-pwd-strength】，未完善，不可用</div>
+            <div class="content">
+              <v-pwd-strength password="hello"></v-pwd-strength>
+            </div>
+          </div>
+
+          <div class="panel" id="toModal">
+            <div class="title">模态框</div>
+            <div class="usage">【this.$modal(options)】</div>
+            <div class="content">
+              <v-button @click="showModal">显示</v-button>
+              <v-button @click="showSimpleModal">简单模式</v-button>
+              <v-button @click="showFixedModal">顶部固定模式</v-button>
+              <v-button @click="showAsyncModal">异步模式</v-button>
+            </div>
+            <div class="content">
+              <v-table :source="sourceModal" :columns="columns" simple></v-table>
+            </div>
+          </div>
+
+          <div class="panel" id="toPopup">
+            <div class="title">弹出窗口</div>
+            <div class="usage">【v-popup】</div>
+            <div class="content">
+              <v-button @click="showPopup">显示</v-button>
+            </div>
+            <h4 style="padding-left: 10px;">提供name=footer的slot，用于自定义底部按钮</h4>
+            <div class="content">
+              <v-table :source="sourcePopup" :columns="columns" simple></v-table>
+            </div>
+          </div>
+
+          <div class="panel" id="toTable">
+            <div class="title">表格</div>
+            <div class="usage">【v-table】</div>
+            <div class="content">
+              <v-table :source="buildings" :columns="buildingColumns" :page-counts="pageCounts" :count-of-page="20" checkbox @check="checkTableRows" fixed-head></v-table>
+              <v-table :source="buildings" :columns="buildingColumns" @click-row="clickRow" @dbl-click-row="dblClickRow" simple fixed-head></v-table>
+              <v-table :source="[]" :columns="buildingColumns" simple></v-table>
+            </div>
+            <div class="content">
+              <v-table :source="sourceTable" :columns="columns" simple></v-table>
+            </div>
+          </div>
+
+          <div class="panel" id="toBadge">
+            <div class="title">徽标</div>
+            <div class="content">
+              <div class="controls">
+                <div class="control control-source">
+                  <div class="c-demo">
+                    <div class="v-badge">
+                      <v-icon icon="bells"></v-icon>
+                    </div>
+                  </div>
+                  <div class="c-code">
+                    <pre class="language-html"><code>&lt;div class=&quot;v-badge&quot;&gt;
+  &lt;v-icon icon=&quot;bells&quot;&gt;&lt;/v-icon&gt;
+&lt;/div&gt;</code></pre>
+                  </div>
+                </div>
+
+                <div class="control control-source">
+                  <div class="c-demo">
+                    <div class="v-badge">邮件</div>
+                  </div>
+                  <div class="c-code">
+                    <pre class="language-html"><code>&lt;div class=&quot;v-badge&quot;&gt;邮件&lt;/div&gt;</code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="controls">
+                <div class="control control-source">
+                  <div class="c-demo">
+                    <div class="v-badge" data-count="20">
+                      <v-icon icon="bells"></v-icon>
+                    </div>
+                  </div>
+                  <div class="c-code">
+                    <pre class="language-html"><code>&lt;div class=&quot;v-badge&quot; data-count=&quot;20&quot;&gt;
+  &lt;v-icon icon=&quot;bells&quot;&gt;&lt;/v-icon&gt;
+&lt;/div&gt;</code></pre>
+                  </div>
+                </div>
+
+                <div class="control control-source">
+                  <div class="c-demo">
+                    <div class="v-badge" data-count="99">邮件</div>
+                  </div>
+                  <div class="c-code">
+                    <pre
+                      class="language-html"><code>&lt;div class=&quot;v-badge&quot; data-count=&quot;99&quot;&gt;邮件&lt;/div&gt;</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel" id="toTooltip">
+            <div class="title">Tooltip</div>
+            <div class="usage">【v-tooltip】</div>
+            <div class="content">
+              <div class="controls" style="align-items: center;">
+                <v-tooltip text="这是提示这是提示内容这是提示内容这是提示内容内容" :width="100">提示在上面</v-tooltip>
+                <v-tooltip text="这是提示内容" pos="bottom">
+                  <v-button>提示在下面</v-button>
+                </v-tooltip>
+                <v-tooltip text="这是提示内容" pos="left">
+                  <v-icon icon="tip"></v-icon>
+                </v-tooltip>
+                <v-tooltip text="这是提示内容" pos="right">
+                  <v-input placeholder="提示在右边"></v-input>
+                </v-tooltip>
+              </div>
+            </div>
+            <div class="content">
+              <v-table :source="sourceTooltip" :columns="columns" simple></v-table>
+            </div>
+          </div>
+
+          <div class="panel" id="toSteps">
+            <div class="title">【扩展】步骤条</div>
+            <div class="usage">【v-step】</div>
+            <div class="content">
+              <div class="content-cell">
+                <div class="controls" style="display: block;">
+                  <v-step :cur="currentStep" :steps="allSteps"></v-step>
+                </div>
+                <div class="controls" style="display: block;">
+                  <v-step :cur="currentStep" :steps="allSteps2"></v-step>
+                </div>
+                <div class="controls" style="display: block;">
+                  <v-button @click="previousStep">上一步</v-button>
+                  <v-button @click="nextStep">下一步</v-button>
+                </div>
+              </div>
+            </div>
+            <div class="content">
+              <v-table :source="sourceSteps" :columns="columns" simple></v-table>
+            </div>
+          </div>
+
+          <div class="panel" id="toImgReflex">
+            <div class="title">【扩展】图片倒影</div>
+            <div class="content">
+              <v-img-reflex src="/img/reflex.jpg"></v-img-reflex>
+            </div>
+          </div>
+
+          <div class="panel" id="toSelectCity">
+            <div class="title">【扩展】省市选择器</div>
+            <div class="content">
+              <v-select-city v-model="provinceCity"></v-select-city>
+            </div>
+          </div>
+
+          <div class="panel" id="toCollapse">
+            <div class="title">【扩展】收缩菜单</div>
+            <div class="usage">【v-collapse】</div>
+            <div class="content">
+              <v-collapse :panels="collapsePanels">
+                <div class="c-panel" slot="first">
+                  <v-button>First Button</v-button>
+                </div>
+                <div class="c-panel" slot="second">
+                  <v-input></v-input>
+                </div>
+                <div class="c-panel" slot="third">
+                  <v-checkbox-group :source="checkboxSource" v-model="multiCheckboxValue" reverse vertical lnf="button"></v-checkbox-group>
+                </div>
+              </v-collapse>
+            </div>
+            <div class="content">
+              <v-collapse :panels="collapsePanels" independent>
+                <div class="c-panel" slot="first">
+                  <v-button>First Button</v-button>
+                </div>
+                <div class="c-panel" slot="second">
+                  <v-input></v-input>
+                </div>
+                <div class="c-panel" slot="third">
+                  <v-checkbox-group :source="checkboxSource" v-model="multiCheckboxValue" reverse vertical lnf="button"></v-checkbox-group>
+                </div>
+              </v-collapse>
+            </div>
+            <div class="content">
+              <v-table :source="sourceCollapse" :columns="columns" simple></v-table>
+            </div>
+          </div>
+
+          <div class="panel" id="toHtmlEditor">
+            <div class="title">【扩展】富文本编辑器</div>
+            <div class="content" style="display: flex">
+              <v-html-editor></v-html-editor>
+            </div>
+          </div>
+
+          <!--<div class="panel" id="toShare">
+            <div class="title">【扩展】分享</div>
+            <div class="content">
+              待开发
+              <v-share url="http://192.168.1.12:8000/jianyong/myui" title="UI Components for Vue"></v-share>
+            </div>
+          </div>-->
+
+          <div class="panel" id="toTags">
+            <div class="title">【扩展】标签</div>
+            <div class="content">
+              <v-tag :tags="tags"></v-tag>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/vue.js"></script>
+    <script src="js/iconfont.js"></script>
+    <script src="js/prism.js"></script>
+    <script src="js/myui.js"></script>
+    <script src="js/myui.extension.js"></script>
+    <script src="js/main.js"></script>
+    <!-- built files will be auto injected -->
+  </body>
+</html>

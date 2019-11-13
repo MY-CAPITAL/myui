@@ -1,0 +1,228 @@
+body.overhidden {
+  overflow: hidden;
+}
+
+.container > .l {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: #f5f5f5;
+  overflow: auto;
+}
+.container > .r {
+  margin-left: 300px;
+}
+.aside .list {
+  margin-top: 80px;
+}
+.aside .list li {
+  border-bottom: 1px solid #e9e9e9;
+}
+.aside .list li a {
+  display: block;
+  line-height: 42px;
+  padding-left: 40px;
+  transition: color 0.25s;
+}
+.aside .list li a:hover {
+  color: #4ad3e8;
+}
+.aside .list li a.focus {
+  color: #00c1de;
+}
+.main .grid-demo {
+  width: 100%;
+}
+.main .grid-demo > .row,
+.main .grid-demo > .row-inline {
+  min-height: 40px;
+  padding: 4px;
+  border: 1px solid red;
+}
+.main .grid-demo > .row > .cell,
+.main .grid-demo > .row-inline > .cell,
+.main .grid-demo > .row > .cell-h,
+.main .grid-demo > .row-inline > .cell-h {
+  min-height: 30px;
+  padding: 4px;
+  border: 1px solid blue;
+}
+.main .grid-demo > .row > .cell .seg,
+.main .grid-demo > .row-inline > .cell .seg,
+.main .grid-demo > .row > .cell-h .seg,
+.main .grid-demo > .row-inline > .cell-h .seg {
+  min-height: 60px;
+  height: 20px;
+  border: 1px solid green;
+}
+.main .grid-demo > .row > .cell .seg,
+.main .grid-demo > .row-inline > .cell .seg {
+  min-width: 60px;
+}
+.main .grid-demo > .row > .cell-h .seg,
+.main .grid-demo > .row-inline > .cell-h .seg {
+  flex: 1;
+}
+.main .left-right-demo {
+  width: 100%;
+}
+.main .left-right-demo > .left {
+  background-color: red;
+  width: 300px;
+  height: 60px;
+}
+.main .left-right-demo > .right {
+  background-color: blue;
+  height: 60px;
+}
+.main .pwd-validity-demo {
+  position: relative;
+  padding-bottom: 30px;
+  width: 50%;
+}
+.panel {
+  border-bottom: 1px solid #e9e9e9;
+}
+.panel .title {
+  font-size: 1.8rem;
+  padding: 12px 16px;
+  line-height: 1.25;
+  letter-spacing: 1px;
+}
+.panel .usage {
+  padding: 6px 8px;
+}
+.panel .content {
+  padding: 10px;
+}
+.panel .content-cell {
+  margin-bottom: 20px;
+  border: 1px solid #e9e9e9;
+}
+.panel .controls {
+  display: flex;
+  padding: 20px 10px;
+  border-bottom: 1px solid #e9e9e9;
+}
+.panel .controls > * {
+  margin-right: 20px;
+}
+.panel .controls > .v-dropdown-wrap {
+  margin-right: 100px;
+}
+.panel .controls .control-source .c-demo {
+  display: flex;
+  justify-content: center;
+}
+.panel .source-code pre {
+  margin: 0;
+}
+.panel .source-code pre .hljs {
+  font-family: Monaco, Consolas, monospace;
+  line-height: 1.5;
+  padding: 20px 10px;
+  background-color: #000;
+}
+.container .cell .title {
+  font-size: 18px;
+  background-color: transparent;
+  padding: 12px 16px;
+}
+.container .cell .content {
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  margin: auto;
+  min-height: 480px;
+}
+.container .cell .content > * {
+  margin-right: 20px;
+}
+.container .cell .content .vue-html-editor {
+  margin: 20px 0;
+  width: 80%;
+}
+.container .cell .content .table {
+  width: 80%;
+}
+.container .cell .content .input-radio {
+  width: 100%;
+  padding-left: 40%;
+  margin-bottom: 20px;
+}
+.container .cell .content .vue-tab {
+  margin-right: 0;
+}
+.container .cell .content .vue-carousel {
+  flex-grow: 1;
+  margin-right: 0;
+}
+.container .cell .content .vue-collapse {
+  margin-right: 0;
+  width: 80%;
+}
+.v-row {
+  height: auto;
+  margin-bottom: 16px;
+}
+.v-row .v-col {
+  padding: 16px 0;
+  text-align: center;
+  color: #fff;
+  font-size: 1.4rem;
+}
+.v-row .v-col:nth-child(odd) {
+  background-color: #00c1de;
+}
+.v-row .v-col:nth-child(even) {
+  background-color: #00a854;
+}
+.v-layout-lr-demo {
+  width: 100%;
+}
+.v-layout-lr-demo > .l {
+  background-color: red;
+  width: 300px;
+  height: 60px;
+}
+.v-layout-lr-demo > .r {
+  background-color: blue;
+  height: 60px;
+}
+.v-tab {
+  flex: 1;
+}
+.v-select {
+  vertical-align: top;
+}
+.v-progress {
+  display: inline-block;
+  margin-right: 8px;
+}
+.v-pagination {
+  margin-bottom: 16px;
+}
+
+.v-select-city .v-select {
+  width: 200px;
+}
+
+.v-table {
+  margin-bottom: 40px;
+}
+
+.v-checkbox-group.vertical .g-item {
+  padding: 10px 0;
+}
+
+.v-radio-group.vertical .g-item {
+  padding: 10px 0;
+}
+
+.v-collapse .c-panel {
+  padding: var(--2unit);
+}
