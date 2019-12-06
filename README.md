@@ -1,5 +1,7 @@
 <h1 align="center" style="margin: 30px 0 35px;">myui</h1>
 
+必要的时候在此代码基础上修改，编译出 `myui.js` 替换项目中的 `lovue.js`.
+
 - 包含一些纯CSS控件
 - 每个组件都是一个.vue格式的单文件，并且尽量减少代码量，结构简单，方便阅读和理解以及自行修改源码
 - 尽量使用最新的技术实现
@@ -35,7 +37,6 @@ less编译：`npm run gulp` 或者 `npx gulp` 或者 配置WebStorm的`FileWatch
 </body>
 ```
 
-### 已完成：
 
 #### Basic
 - 左右布局
@@ -67,11 +68,3 @@ less编译：`npm run gulp` 或者 `npx gulp` 或者 配置WebStorm的`FileWatch
 - 中国省市选择器：SelectCity.vue
 - 步骤：Step.vue
 - 标签选择：Tag.vue
-
-
-### 开发中：
-
-- 图片裁剪并上传（简版）：Crop.vue
-- 走马灯：Carousel.vue
-- 树形列表：TreeList.vue
-- 带树形结构的表格:TableTree.vue
