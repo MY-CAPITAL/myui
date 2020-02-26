@@ -626,6 +626,8 @@ const secondsToDuration = (num, type = 1) => {
   return [`${days}天 ${hours}:${minutes}:${seconds}`, `${days}day${hours}h${minutes}m${seconds}s`][type - 1]
 };
 
+const kvAry2Obj = ary => ary.reduce((obj, [key, value]) => ({...obj, [key]: value}), {});
+
 const utils = {
   adjustImgShape,
   connectWS,
@@ -657,7 +659,8 @@ const utils = {
   intlNumber,
   generateQueryString,
   getNumberArray,
-  secondsToDuration
+  secondsToDuration,
+  kvAry2Obj
 };
 
 exports.$fetch = $fetch;
@@ -686,6 +689,7 @@ exports.isMobileEx = isMobileEx;
 exports.isSupportWebGL = isSupportWebGL;
 exports.isWeixin = isWeixin;
 exports.isWeixinInIphone = isWeixinInIphone;
+exports.kvAry2Obj = kvAry2Obj;
 exports.reload = reload;
 exports.saveDataToFile = saveDataToFile;
 exports.secondsToDuration = secondsToDuration;

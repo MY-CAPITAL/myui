@@ -623,6 +623,8 @@ var utils = (function (exports) {
     return [`${days}天 ${hours}:${minutes}:${seconds}`, `${days}day${hours}h${minutes}m${seconds}s`][type - 1]
   };
 
+  var kvAry2Obj = ary => ary.reduce((obj, [key, value]) => ({...obj, [key]: value}), {});
+
   var utils = {
     adjustImgShape,
     connectWS,
@@ -654,7 +656,8 @@ var utils = (function (exports) {
     intlNumber,
     generateQueryString,
     getNumberArray,
-    secondsToDuration
+    secondsToDuration,
+    kvAry2Obj
   };
 
   exports.$fetch = $fetch;
@@ -683,6 +686,7 @@ var utils = (function (exports) {
   exports.isSupportWebGL = isSupportWebGL;
   exports.isWeixin = isWeixin;
   exports.isWeixinInIphone = isWeixinInIphone;
+  exports.kvAry2Obj = kvAry2Obj;
   exports.reload = reload;
   exports.saveDataToFile = saveDataToFile;
   exports.secondsToDuration = secondsToDuration;

@@ -29,6 +29,7 @@ import intlNumber from './utils/intlNumber'
 import generateQueryString from './utils/generateQueryString'
 import getNumberArray from './utils/getNumberArray'
 import secondsToDuration from './utils/secondsToDuration'
+import kvAry2Obj from './utils/kvAry2Obj'
 
 export {
   adjustImgShape,
@@ -61,7 +62,8 @@ export {
   intlNumber,
   generateQueryString,
   getNumberArray,
-  secondsToDuration
+  secondsToDuration,
+  kvAry2Obj
 }
 
 export default {
@@ -95,6 +97,7 @@ export default {
   intlNumber,
   generateQueryString,
   getNumberArray,
-  secondsToDuration
+  secondsToDuration,
+  kvAry2Obj
 }
 

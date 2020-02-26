@@ -622,6 +622,8 @@ const secondsToDuration = (num, type = 1) => {
   return [`${days}天 ${hours}:${minutes}:${seconds}`, `${days}day${hours}h${minutes}m${seconds}s`][type - 1]
 };
 
+const kvAry2Obj = ary => ary.reduce((obj, [key, value]) => ({...obj, [key]: value}), {});
+
 const utils = {
   adjustImgShape,
   connectWS,
@@ -653,8 +655,9 @@ const utils = {
   intlNumber,
   generateQueryString,
   getNumberArray,
-  secondsToDuration
+  secondsToDuration,
+  kvAry2Obj
 };
 
 export default utils;
-export { $fetch, adjustImgShape, browserType, connectWS, convertTableDataToString, fillDateNumber, formatDate, generateQueryString, getAverageRGB, getElemHeight, getKeyByValue, getNumberArray, getScrollTop, getSearchParam, getTimeDiff, getype, intlNumber, isEmptyObject, isFirefox, isIE, isMobile, isMobileEx, isSupportWebGL, isWeixin, isWeixinInIphone, reload, saveDataToFile, secondsToDuration, sleep, smoothToTop, sortObjectArray };
+export { $fetch, adjustImgShape, browserType, connectWS, convertTableDataToString, fillDateNumber, formatDate, generateQueryString, getAverageRGB, getElemHeight, getKeyByValue, getNumberArray, getScrollTop, getSearchParam, getTimeDiff, getype, intlNumber, isEmptyObject, isFirefox, isIE, isMobile, isMobileEx, isSupportWebGL, isWeixin, isWeixinInIphone, kvAry2Obj, reload, saveDataToFile, secondsToDuration, sleep, smoothToTop, sortObjectArray };
