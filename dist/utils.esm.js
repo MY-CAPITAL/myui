@@ -624,6 +624,20 @@ const secondsToDuration = (num, type = 1) => {
 
 const kvAry2Obj = ary => ary.reduce((obj, [key, value]) => ({...obj, [key]: value}), {});
 
+// YYYYMMDD -> YYYY-MM-DD
+const intDate2Dashed = date => {
+  if (!date) return date
+
+  return `${date}`.replace(/^(\d{4})(\d{2})(\d{2})$/, function (x, a, b, c) {
+    return `${a}-${b}-${c}`
+  })
+};
+
+// YYYY-MM-DD -> YYYYMMDD
+const dashedDate2Int = date => {
+  return Number(date.replace(/-/g, ''))
+};
+
 const utils = {
   adjustImgShape,
   connectWS,
@@ -656,7 +670,9 @@ const utils = {
   generateQueryString,
   getNumberArray,
   secondsToDuration,
-  kvAry2Obj
+  kvAry2Obj,
+  intDate2Dashed,
+  dashedDate2Int
 };
 
 export default utils;

@@ -625,6 +625,20 @@ var utils = (function (exports) {
 
   var kvAry2Obj = ary => ary.reduce((obj, [key, value]) => ({...obj, [key]: value}), {});
 
+  // YYYYMMDD -> YYYY-MM-DD
+  var intDate2Dashed = date => {
+    if (!date) return date
+
+    return `${date}`.replace(/^(\d{4})(\d{2})(\d{2})$/, function (x, a, b, c) {
+      return `${a}-${b}-${c}`
+    })
+  };
+
+  // YYYY-MM-DD -> YYYYMMDD
+  var dashedDate2Int = date => {
+    return Number(date.replace(/-/g, ''))
+  };
+
   var utils = {
     adjustImgShape,
     connectWS,
@@ -657,7 +671,9 @@ var utils = (function (exports) {
     generateQueryString,
     getNumberArray,
     secondsToDuration,
-    kvAry2Obj
+    kvAry2Obj,
+    intDate2Dashed,
+    dashedDate2Int
   };
 
   exports.$fetch = $fetch;

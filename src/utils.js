@@ -30,6 +30,8 @@ import generateQueryString from './utils/generateQueryString'
 import getNumberArray from './utils/getNumberArray'
 import secondsToDuration from './utils/secondsToDuration'
 import kvAry2Obj from './utils/kvAry2Obj'
+import intDate2Dashed from './utils/intDate2Dashed'
+import dashedDate2Int from './utils/dashedDate2Int'
 
 export {
   adjustImgShape,
@@ -98,6 +100,8 @@ export default {
   generateQueryString,
   getNumberArray,
   secondsToDuration,
-  kvAry2Obj
+  kvAry2Obj,
+  intDate2Dashed,
+  dashedDate2Int
 }
 
