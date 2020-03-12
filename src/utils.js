@@ -65,7 +65,9 @@ export {
   generateQueryString,
   getNumberArray,
   secondsToDuration,
-  kvAry2Obj
+  kvAry2Obj,
+  intDate2Dashed,
+  dashedDate2Int
 }
 
 export default {
