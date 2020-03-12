@@ -676,4 +676,4 @@ const utils = {
 };
 
 export default utils;
-export { $fetch, adjustImgShape, browserType, connectWS, convertTableDataToString, fillDateNumber, formatDate, generateQueryString, getAverageRGB, getElemHeight, getKeyByValue, getNumberArray, getScrollTop, getSearchParam, getTimeDiff, getype, intlNumber, isEmptyObject, isFirefox, isIE, isMobile, isMobileEx, isSupportWebGL, isWeixin, isWeixinInIphone, kvAry2Obj, reload, saveDataToFile, secondsToDuration, sleep, smoothToTop, sortObjectArray };
+export { $fetch, adjustImgShape, browserType, connectWS, convertTableDataToString, dashedDate2Int, fillDateNumber, formatDate, generateQueryString, getAverageRGB, getElemHeight, getKeyByValue, getNumberArray, getScrollTop, getSearchParam, getTimeDiff, getype, intDate2Dashed, intlNumber, isEmptyObject, isFirefox, isIE, isMobile, isMobileEx, isSupportWebGL, isWeixin, isWeixinInIphone, kvAry2Obj, reload, saveDataToFile, secondsToDuration, sleep, smoothToTop, sortObjectArray };
