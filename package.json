@@ -1,6 +1,6 @@
 {
   "name": "@mycapital/myui",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "UI components for Vue",
   "module": "dist/myui.esm.js",
   "unpkg": "dist/myui.min.js",

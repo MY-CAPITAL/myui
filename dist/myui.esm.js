@@ -1349,6 +1349,8 @@ var __vue_staticRenderFns__$c = [];
 //
 //
 //
+//
+//
 
 const script$d = {
   name: 'v-progress',
@@ -1387,7 +1389,7 @@ const script$d = {
 const __vue_script__$d = script$d;
 
 /* template */
-var __vue_render__$d = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"v-progress",style:(_vm.style)},[_c('div',{staticClass:"layer-1"}),_vm._v(" "),_c('div',{staticClass:"layer-2",style:(("width:" + _vm.progress + "%; background-color: " + _vm.color))}),_vm._v(" "),_c('div',{staticClass:"layer-3"},[_vm._v(_vm._s(_vm.progress)+"%")])])};
+var __vue_render__$d = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"v-progress",style:(_vm.style)},[_c('div',{staticClass:"layer-1"}),_vm._v(" "),_c('div',{staticClass:"layer-2",class:{done: _vm.progress === 100},style:(("width: " + _vm.progress + "%; background-color: " + _vm.color))}),_vm._v(" "),_c('div',{staticClass:"layer-3"},[_vm._v(_vm._s(_vm.progress)+"%")])])};
 var __vue_staticRenderFns__$d = [];
 
   /* style */
