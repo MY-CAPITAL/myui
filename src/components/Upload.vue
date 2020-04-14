@@ -13,7 +13,7 @@
     <template v-else>
       <div class="u-above">
         <div class="btn-wrap">
-          <v-button icon="upload">{{text || '选择文件'}}</v-button>
+          <v-button icon="upload" size="size">{{text || '选择文件'}}</v-button>
           <input type="file" :name="name" @change="selectFile" :multiple="multi" :required="required" :accept="accept">
         </div>
         <div class="u-file-names" v-if="!upload && !thumbnail && fileNames.length">
@@ -60,7 +60,8 @@
       shape: {
         type: String,
         'default': 'button'
-      }
+      },
+      size: String
     },
     components: {
       [Button.name]: Button,
