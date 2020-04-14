@@ -46,7 +46,7 @@
               </label>
             </td>
             <td v-for="column of columns" :class="column.cssClass">
-              <slot :name="column.prop" :value="row">{{filterSlot(row, column)}}</slot>
+              <slot :name="column.prop" :value="row" :index="i">{{filterSlot(row, column)}}</slot>
             </td>
           </tr>
           </tbody>
