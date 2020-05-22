@@ -5,6 +5,7 @@
       <div class="m"><slot name="tools-m"></slot></div>
       <div class="r">
         <v-search @search="filter" :delay="300"></v-search>
+        <slot name="tools-r"></slot>
       </div>
     </header>
 
