@@ -1,6 +1,6 @@
 <template>
   <div class="v-date-picker" @click="showPicker">
-    <input class="input" :style="inputStyle" :name="name" v-model="date" readonly>
+    <input class="input" :style="inputStyle" :name="name" v-model="date" readonly @click="bShowPicker && hidePicker()">
     <div class="picker-container" :class="`${pos} ${open}`" ref="container" v-show="bShowPicker">
       <div class="date-picker">
         <div class="picker-filter">
@@ -193,7 +193,8 @@
       },
       selectDay(i, j) {
         let d = this.days[(i - 1) * 7 + (j - 1)]
-        if (d.month === 0 && d.text === this.day) return
+        if (d.month === 0 && d.text === this.day)
+          return this.hidePicker()
 
         for (let m = 0; m < 42; m++) {
           let day = this.days[m]
