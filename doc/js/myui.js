@@ -91,7 +91,6 @@ const myui = (function (exports, Vue) {
       }
       return script;
   }
-  //# sourceMappingURL=normalize-component.mjs.map
 
   /* script */
   const __vue_script__ = script;
@@ -790,8 +789,7 @@ const myui = (function (exports, Vue) {
       },
       showPicker() {
         this.selfClicked = true;
-        if (this.bShowPicker)
-          return this.hidePicker()
+        if (this.bShowPicker) return
         this.bShowPicker = true;
 
         const bottomSpace = window.innerHeight - this.$el.getBoundingClientRect().bottom;
@@ -812,8 +810,7 @@ const myui = (function (exports, Vue) {
       },
       selectDay(i, j) {
         let d = this.days[(i - 1) * 7 + (j - 1)];
-        if (d.month === 0 && d.text === this.day)
-          return this.hidePicker()
+        if (d.month === 0 && d.text === this.day) return
 
         for (let m = 0; m < 42; m++) {
           let day = this.days[m];
@@ -1357,8 +1354,6 @@ const myui = (function (exports, Vue) {
   //
   //
   //
-  //
-  //
 
   const script$d = {
     name: 'v-progress',
@@ -1397,7 +1392,7 @@ const myui = (function (exports, Vue) {
   const __vue_script__$d = script$d;
 
   /* template */
-  var __vue_render__$d = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"v-progress",style:(_vm.style)},[_c('div',{staticClass:"layer-1"}),_vm._v(" "),_c('div',{staticClass:"layer-2",class:{done: _vm.progress === 100},style:(("width: " + _vm.progress + "%; background-color: " + _vm.color))}),_vm._v(" "),_c('div',{staticClass:"layer-3"},[_vm._v(_vm._s(_vm.progress)+"%")])])};
+  var __vue_render__$d = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"v-progress",style:(_vm.style)},[_c('div',{staticClass:"layer-1"}),_vm._v(" "),_c('div',{staticClass:"layer-2",style:(("width:" + _vm.progress + "%; background-color: " + _vm.color))}),_vm._v(" "),_c('div',{staticClass:"layer-3"},[_vm._v(_vm._s(_vm.progress)+"%")])])};
   var __vue_staticRenderFns__$d = [];
 
     /* style */
@@ -2382,7 +2377,7 @@ const myui = (function (exports, Vue) {
   const __vue_script__$m = script$m;
 
   /* template */
-  var __vue_render__$m = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"v-table"},[(!_vm.simple)?_c('header',{staticClass:"t-tools"},[_c('div',{staticClass:"l"},[_vm._t("tools-l")],2),_vm._v(" "),_c('div',{staticClass:"m"},[_vm._t("tools-m")],2),_vm._v(" "),_c('div',{staticClass:"r"},[_c('v-search',{attrs:{"delay":300},on:{"search":_vm.filter}})],1)]):_vm._e(),_vm._v(" "),_c('div',{staticClass:"t-table",class:{'fixed-head': _vm.fixedHead}},[_c('div',{staticClass:"table-wrap"},[_c('table',{staticClass:"table"},[_c('colgroup',[(_vm.checkbox)?_c('col'):_vm._e(),_vm._v(" "),_vm._l((_vm.columns),function(col){return _c('col',{class:("col-" + (col.prop))})})],2),_vm._v(" "),_c('thead',[_c('tr',[(_vm.checkbox && _vm.source.length)?_c('th',[_c('div',{staticClass:"t-title"},[_c('v-checkbox',{attrs:{"label":"全选"},model:{value:(_vm.selectAll),callback:function ($$v) {_vm.selectAll=$$v;},expression:"selectAll"}})],1)]):_vm._e(),_vm._v(" "),_vm._l((_vm.columns),function(column,i){return _c('th',{class:column.cssClass},[_c('div',{staticClass:"t-title",class:column.cssClass},[_vm._v("\n              "+_vm._s(column.title)+"\n              "),(column.sortable)?_c('span',{staticClass:"sort-arrows",on:{"click":function($event){return _vm.handleSortClick(i)}}},[_c('v-icon',{class:{'dir-up': true, focus: _vm.sortType[i] === 1},attrs:{"icon":"down-wide"}}),_vm._v(" "),_c('v-icon',{class:{focus: _vm.sortType[i] === -1},attrs:{"icon":"down-wide"}})],1):_vm._e()])])})],2)]),_vm._v(" "),_c('tbody',[(!_vm.source.length)?_c('tr',{staticClass:"no-data-row"},[_c('td',{attrs:{"colspan":_vm.columns.length}},[_vm._v(_vm._s(_vm.emptyText || '暂无数据'))])]):_vm._e(),_vm._v(" "),_vm._l((_vm.showed),function(row,i){return (_vm.simple || (i >= _vm.slice[0] && i < _vm.slice[1]))?_c('tr',{class:{focus: row.focused},on:{"click":function($event){return _vm.$emit('click-row', row)},"dblclick":function($event){return _vm.$emit('dbl-click-row', row)}}},[(_vm.checkbox)?_c('td',{on:{"click":function($event){$event.stopPropagation();}}},[_c('label',{staticClass:"v-checkbox"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.selected),expression:"selected"}],attrs:{"type":"checkbox"},domProps:{"value":i,"checked":Array.isArray(_vm.selected)?_vm._i(_vm.selected,i)>-1:(_vm.selected)},on:{"change":function($event){var $$a=_vm.selected,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=i,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.selected=$$a.concat([$$v]));}else{$$i>-1&&(_vm.selected=$$a.slice(0,$$i).concat($$a.slice($$i+1)));}}else{_vm.selected=$$c;}}}}),_vm._v(" "),_c('span',[_vm._v(_vm._s(_vm.checkboxColumn ? row[_vm.checkboxColumn] : (i + 1)))])])]):_vm._e(),_vm._v(" "),_vm._l((_vm.columns),function(column){return _c('td',{class:column.cssClass},[_vm._t(column.prop,[_vm._v(_vm._s(_vm.filterSlot(row, column)))],{"value":row,"index":i})],2)})],2):_vm._e()})],2)])])]),_vm._v(" "),(!_vm.simple && _vm.source.length)?_c('div',{staticClass:"t-footer"},[_c('v-pagination',{attrs:{"total":_vm.total || _vm.showed.length,"page-counts":_vm.pageCounts,"count-of-page":_vm.countOfPage,"simple":_vm.simplePagination,"no-border":_vm.paginationNoBorder},on:{"update":_vm.updateTable}})],1):_vm._e()])};
+  var __vue_render__$m = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"v-table"},[(!_vm.simple)?_c('header',{staticClass:"t-tools"},[_c('div',{staticClass:"l"},[_vm._t("tools-l")],2),_vm._v(" "),_c('div',{staticClass:"m"},[_vm._t("tools-m")],2),_vm._v(" "),_c('div',{staticClass:"r"},[_c('v-search',{attrs:{"delay":300},on:{"search":_vm.filter}})],1)]):_vm._e(),_vm._v(" "),_c('div',{staticClass:"t-table",class:{'fixed-head': _vm.fixedHead}},[_c('div',{staticClass:"table-wrap"},[_c('table',{staticClass:"table"},[_c('colgroup',[(_vm.checkbox)?_c('col'):_vm._e(),_vm._v(" "),_vm._l((_vm.columns),function(col){return _c('col',{class:("col-" + (col.prop))})})],2),_vm._v(" "),_c('thead',[_c('tr',[(_vm.checkbox && _vm.source.length)?_c('th',[_c('div',{staticClass:"t-title"},[_c('v-checkbox',{attrs:{"label":"全选"},model:{value:(_vm.selectAll),callback:function ($$v) {_vm.selectAll=$$v;},expression:"selectAll"}})],1)]):_vm._e(),_vm._v(" "),_vm._l((_vm.columns),function(column,i){return _c('th',{class:column.cssClass},[_c('div',{staticClass:"t-title",class:column.cssClass},[_vm._v("\n              "+_vm._s(column.title)+"\n              "),(column.sortable)?_c('span',{staticClass:"sort-arrows",on:{"click":function($event){return _vm.handleSortClick(i)}}},[_c('v-icon',{class:{'dir-up': true, focus: _vm.sortType[i] === 1},attrs:{"icon":"down-wide"}}),_vm._v(" "),_c('v-icon',{class:{focus: _vm.sortType[i] === -1},attrs:{"icon":"down-wide"}})],1):_vm._e()])])})],2)]),_vm._v(" "),_c('tbody',[(!_vm.source.length)?_c('tr',{staticClass:"no-data-row"},[_c('td',{attrs:{"colspan":_vm.columns.length}},[_vm._v(_vm._s(_vm.emptyText || '暂无数据'))])]):_vm._e(),_vm._v(" "),_vm._l((_vm.showed),function(row,i){return (_vm.simple || (i >= _vm.slice[0] && i < _vm.slice[1]))?_c('tr',{class:{focus: row.focused},on:{"click":function($event){return _vm.$emit('click-row', row)},"dblclick":function($event){return _vm.$emit('dbl-click-row', row)}}},[(_vm.checkbox)?_c('td',{on:{"click":function($event){$event.stopPropagation();}}},[_c('label',{staticClass:"v-checkbox"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.selected),expression:"selected"}],attrs:{"type":"checkbox"},domProps:{"value":i,"checked":Array.isArray(_vm.selected)?_vm._i(_vm.selected,i)>-1:(_vm.selected)},on:{"change":function($event){var $$a=_vm.selected,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=i,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.selected=$$a.concat([$$v]));}else{$$i>-1&&(_vm.selected=$$a.slice(0,$$i).concat($$a.slice($$i+1)));}}else{_vm.selected=$$c;}}}}),_vm._v(" "),_c('span',[_vm._v(_vm._s(_vm.checkboxColumn ? row[_vm.checkboxColumn] : (i + 1)))])])]):_vm._e(),_vm._v(" "),_vm._l((_vm.columns),function(column){return _c('td',{class:column.cssClass},[_vm._t(column.prop,[_vm._v(_vm._s(_vm.filterSlot(row, column)))],{"value":row})],2)})],2):_vm._e()})],2)])])]),_vm._v(" "),(!_vm.simple && _vm.source.length)?_c('div',{staticClass:"t-footer"},[_c('v-pagination',{attrs:{"total":_vm.total || _vm.showed.length,"page-counts":_vm.pageCounts,"count-of-page":_vm.countOfPage,"simple":_vm.simplePagination,"no-border":_vm.paginationNoBorder},on:{"update":_vm.updateTable}})],1):_vm._e()])};
   var __vue_staticRenderFns__$m = [];
 
     /* style */
@@ -2504,8 +2499,7 @@ const myui = (function (exports, Vue) {
       shape: {
         type: String,
         'default': 'button'
-      },
-      size: String
+      }
     },
     components: {
       [Button.name]: Button,
@@ -2572,7 +2566,7 @@ const myui = (function (exports, Vue) {
   const __vue_script__$o = script$o;
 
   /* template */
-  var __vue_render__$o = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"v-upload"},[(_vm.shape === 'square')?_c('div',{staticClass:"u-thumbs"},[_vm._l((_vm.fileThumbs),function(thumb,i){return _c('div',{staticClass:"thumb-wrap",style:(("width: " + _vm.thumbSize + "px;height: " + _vm.thumbSize + "px;"))},[_c('img',{attrs:{"src":thumb}}),_vm._v(" "),_c('div',{staticClass:"del-mask",on:{"click":function($event){return _vm.deleteFile(i)}}},[_c('v-icon',{attrs:{"icon":"delete"}})],1)])}),_vm._v(" "),_c('div',{staticClass:"btn-wrap",style:(("width: " + _vm.thumbSize + "px;height: " + _vm.thumbSize + "px;"))},[_c('v-icon',{attrs:{"icon":"plus","size":"30"}}),_vm._v(" "),_c('input',{attrs:{"type":"file","name":_vm.name,"multiple":_vm.multi,"required":_vm.required,"accept":_vm.accept},on:{"change":_vm.selectFile}})],1)],2):[_c('div',{staticClass:"u-above"},[_c('div',{staticClass:"btn-wrap"},[_c('v-button',{attrs:{"icon":"upload","size":_vm.size}},[_vm._v(_vm._s(_vm.text || '选择文件'))]),_vm._v(" "),_c('input',{attrs:{"type":"file","name":_vm.name,"multiple":_vm.multi,"required":_vm.required,"accept":_vm.accept},on:{"change":_vm.selectFile}})],1),_vm._v(" "),(!_vm.upload && !_vm.thumbnail && _vm.fileNames.length)?_c('div',{staticClass:"u-file-names"},_vm._l((_vm.fileNames),function(name){return _c('span',[_vm._v(_vm._s(name))])}),0):_vm._e()]),_vm._v(" "),_c('div',{staticClass:"u-below"},[(_vm.thumbnail)?_c('div',{staticClass:"u-thumbs"},_vm._l((_vm.fileThumbs),function(thumb){return _c('div',{staticClass:"thumb-wrap",style:(("width: " + _vm.thumbSize + "px;height: " + _vm.thumbSize + "px;"))},[_c('img',{attrs:{"src":thumb}})])}),0):_vm._e()])]],2)};
+  var __vue_render__$o = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"v-upload"},[(_vm.shape === 'square')?_c('div',{staticClass:"u-thumbs"},[_vm._l((_vm.fileThumbs),function(thumb,i){return _c('div',{staticClass:"thumb-wrap",style:(("width: " + _vm.thumbSize + "px;height: " + _vm.thumbSize + "px;"))},[_c('img',{attrs:{"src":thumb}}),_vm._v(" "),_c('div',{staticClass:"del-mask",on:{"click":function($event){return _vm.deleteFile(i)}}},[_c('v-icon',{attrs:{"icon":"delete"}})],1)])}),_vm._v(" "),_c('div',{staticClass:"btn-wrap",style:(("width: " + _vm.thumbSize + "px;height: " + _vm.thumbSize + "px;"))},[_c('v-icon',{attrs:{"icon":"plus","size":"30"}}),_vm._v(" "),_c('input',{attrs:{"type":"file","name":_vm.name,"multiple":_vm.multi,"required":_vm.required,"accept":_vm.accept},on:{"change":_vm.selectFile}})],1)],2):[_c('div',{staticClass:"u-above"},[_c('div',{staticClass:"btn-wrap"},[_c('v-button',{attrs:{"icon":"upload"}},[_vm._v(_vm._s(_vm.text || '选择文件'))]),_vm._v(" "),_c('input',{attrs:{"type":"file","name":_vm.name,"multiple":_vm.multi,"required":_vm.required,"accept":_vm.accept},on:{"change":_vm.selectFile}})],1),_vm._v(" "),(!_vm.upload && !_vm.thumbnail && _vm.fileNames.length)?_c('div',{staticClass:"u-file-names"},_vm._l((_vm.fileNames),function(name){return _c('span',[_vm._v(_vm._s(name))])}),0):_vm._e()]),_vm._v(" "),_c('div',{staticClass:"u-below"},[(_vm.thumbnail)?_c('div',{staticClass:"u-thumbs"},_vm._l((_vm.fileThumbs),function(thumb){return _c('div',{staticClass:"thumb-wrap",style:(("width: " + _vm.thumbSize + "px;height: " + _vm.thumbSize + "px;"))},[_c('img',{attrs:{"src":thumb}})])}),0):_vm._e()])]],2)};
   var __vue_staticRenderFns__$o = [];
 
     /* style */

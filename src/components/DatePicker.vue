@@ -172,8 +172,7 @@
       },
       showPicker() {
         this.selfClicked = true
-        if (this.bShowPicker)
-          return this.hidePicker()
+        if (this.bShowPicker) return
         this.bShowPicker = true
 
         const bottomSpace = window.innerHeight - this.$el.getBoundingClientRect().bottom
@@ -194,8 +193,7 @@
       },
       selectDay(i, j) {
         let d = this.days[(i - 1) * 7 + (j - 1)]
-        if (d.month === 0 && d.text === this.day)
-          return this.hidePicker()
+        if (d.month === 0 && d.text === this.day) return
 
         for (let m = 0; m < 42; m++) {
           let day = this.days[m]
