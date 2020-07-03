@@ -1,9 +1,14 @@
 <template>
   <div class="v-input" :class="{effect: effect}">
     <div class="hidden-value" v-if="resize">{{content}}</div>
+    <template v-if="type === undefined || type === 'text'">
+      <input class="input" :style="`min-width: ${width}px;`" :type="type" :name="name" v-model.trim="content" :step="step" :min="min" :max="max"
+             :placeholder="placeholder" :required="required" autocomplete="off" :disabled="disabled" :readonly="readonly"
+             @keypress.enter="pressEnter">
+    </template>
     <input class="input" :style="`min-width: ${width}px;`" :type="type" :name="name" v-model="content" :step="step" :min="min" :max="max"
            :placeholder="placeholder" :required="required" autocomplete="off" :disabled="disabled" :readonly="readonly"
-           @keypress.enter="pressEnter">
+           @keypress.enter="pressEnter" v-else>
     <hr v-if="effect">
   </div>
 </template>
