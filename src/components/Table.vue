@@ -26,6 +26,7 @@
             <th v-for="(column, i) of columns" :class="column.cssClass">
               <div class="t-title" :class="column.cssClass">
                 {{column.title}}
+                <v-icon :icon="column.titleIcon" v-if="column.titleClickable" @click="$emit('handleTitleClick', column.prop)"></v-icon>
                 <span class="sort-arrows" v-if="column.sortable" @click="handleSortClick(i)">
                   <v-icon icon="down-wide" :class="{'dir-up': true, focus: sortType[i] === 1}"></v-icon>
                   <v-icon icon="down-wide" :class="{focus: sortType[i] === -1}"></v-icon>
