@@ -81,6 +81,15 @@
       value: {
         handler: 'updateSelected',
         immediate: true
+      },
+      bShowCandidates(val) {
+        if (!val) return
+        this.$nextTick(() => {
+          try {
+            this.$el.querySelector('.candidates .focus').scrollIntoView()
+          } catch (e) {
+          }
+        })
       }
     },
     methods: {
