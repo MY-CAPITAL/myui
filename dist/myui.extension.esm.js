@@ -846,7 +846,7 @@ const script$7 = {
       if (!val) return
       this.$nextTick(() => {
         try {
-          this.$el.querySelector('.candidates .focus').scrollIntoView();
+          this.$el.querySelector('.candidates .focus').scrollIntoView({block: 'nearest'});
         } catch (e) {
         }
       });
